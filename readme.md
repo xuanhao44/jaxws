@@ -26,9 +26,11 @@ To follow this tutorial, you need to prepare the following tools:
 
     Java 开发工具包(JDK)。JDK(JDK 8 标准版)请从 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 下载。
 
-2.  The **Inject** java package. The Package can be download from https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html.
+2.  The **Inject** java package. The Package can be downloaded from https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html.
 
     Inject java 包。该包可以从 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 下载。
+
+此 API 似乎在高版本的 JDK 中被移除了，所以使用如 JDK17/18/19 的版本无法成功导入所要使用的包。
 
 ## Introduction
 
@@ -36,7 +38,7 @@ To follow this tutorial, you need to prepare the following tools:
 
 The web service built on JAX-WS can be divided into two parts: a server and a client. The client is quite easy, because we can use wsimport tool, a web service tool provided by java, to generate client code automatically. Let's focus on the server first.
 
-构建在 JAX-WS 上的 web 服务可以分为两部分:服务器和客户机。客户端相当简单，因为我们可 以使用 java 提供的 web 服务工具 wsimport tool 来自动生成客户端代码。让我们先关注一下服务器。
+构建在 JAX-WS 上的 web 服务可以分为两部分:服务器和客户机。客户端相当简单，因为我们可以使用 java 提供的 web 服务工具 wsimport tool 来自动生成客户端代码。让我们先关注一下服务器。
 
 ## Server
 
@@ -62,7 +64,7 @@ In this tutorial, we'll take a look at both approaches.
 
 > 先决条件
 
-The service discussed in this tutorial provides employee information. We would like to let our client check the information about employees in our company. Hence, we first have to prepare some classes about our employee. Please copy the following code and build packpages respectively.
+The service discussed in this tutorial provides employee information. We would like to let our client check the information about employees in our company. Hence, we first have to prepare some classes about our employee. Please copy the following code and build packages respectively.
 
 本教程中讨论的服务提供员工信息。我们希望让我们的客户查看我们公司的员工信息。因此，我们首先要准备一些关于我们员工的课程。请复制以下代码并分别构建包页面。
 
@@ -76,9 +78,9 @@ The service discussed in this tutorial provides employee information. We would l
 
 1.  In the top-down approach, we define our service in WSDL (Web Service Definition Language) file. The following shows the code in our WSDL file named *employeeservicetopdown.wsdl*. If You want to know more about the WSDL, please recall information you have learned in Module 3; You can also check this [blog](https://www.baeldung.com/jax-ws). Create the below WSDL file under your java project.
 
-   [employeeservicetopdown.wsdl](src/com/baeldung/jaxws/server/topdown/employeeservicetopdown.wsdl)
+   在自顶向下的方法中，我们用 WSDL(Web 服务定义语言)文件定义我们的服务。下面显示了名为 *employeeservicetopdown.wsdl* 的 WSDL 文件中的代码。如果您想了解更多 WSDL 的信息，请回忆一下您在模块 3 中学到的信息；也可以查看这篇[博客](https://www.baeldung.com/jax-ws)。在 java 项目下创建下面的 WSDL 文件。
 
-   在自顶向下的方法中，我们用 WSDL(Web 服务定义语言)文件定义我们的服务。下面显示了名为employeeservicetopdown.wsdl 的 WSDL 文件中的代码。如果您想了解更多关于 WSDL 的信息，请回忆一下您在模块 3 中学到的信息;也可以查看这篇[博客](https://www.baeldung.com/jax-ws)。在 java 项目下创建下面的 WSDL 文件。
+   [employeeservicetopdown.wsdl](src/com/baeldung/jaxws/server/topdown/employeeservicetopdown.wsdl)
 
 2.  Generate server code using wsimport command
 
@@ -99,7 +101,7 @@ The service discussed in this tutorial provides employee information. We would l
 
    The parameter -s src\ means we store generated source codes in topdown directory.
 
-   参数-s src\表示我们将生成的源代码存储在 topdown 目录中。
+   参数-s src\ 表示我们将生成的源代码存储在 topdown 目录中。
 
    The parameter **-p com.baeldung.jaxws.server.topdown** means the generated code are in the package topdown.
 
@@ -125,7 +127,7 @@ The service discussed in this tutorial provides employee information. We would l
 
      可以被 JAX-WS 客户机使用的服务提供程序类
 
-   If you get all the files above, then congratulations, let's go to next step. If you have problem at this stage, this link might help. https://www.baeldung.com/jax-ws. You can also ask questions in our wechat group.
+   If you get all the files above, then congratulations, let's go to next step. If you have problem at this stage, this link might help. https://www.baeldung.com/jax-ws. You can also ask questions in our WeChat group.
 
    如果你得到了上面所有的文件，那么恭喜你，让我们进入下一步。如果你在这个阶段有问题，这个链接可能会有帮助。https://www.baeldung.com/jax-ws。你也可以在我们微信群里提问。
 
@@ -141,9 +143,9 @@ The service discussed in this tutorial provides employee information. We would l
 
 4.  Publish our service
 
-   Once we implement the service endpoint interface, the server is finished successfully. To publish the web services (top-down and bottom-up), we need to pass an address and an instance of the web service implementation to the *publish()* method of the *javax.xml. ws.Endpoint* class.
+   Once we implement the service endpoint interface, the server is finished successfully. To publish the web services (top-down and bottom-up), we need to pass an address and an instance of the web service implementation to the *publish()* method of the *javax.xml.ws.Endpoint* class.
 
-   一旦我们实现了服务端点接口，服务器就成功完成了。要发布 web 服务(自上而下和自下而上)，我们需要将 web 服务实现的地址和实例传递给 *javax.xml. ws.Endpoint* 的 *publish()* 方法。
+   一旦我们实现了服务端点接口，服务器就成功完成了。要发布 web 服务(自上而下和自下而上)，我们需要将 web 服务实现的地址和实例传递给 *javax.xml.ws.Endpoint* 的 *publish()* 方法。
 
    [EmployeeServicePublisher.java](src/com/baeldung/jaxws/server/EmployeeServicePublisher.java)
 
@@ -165,15 +167,15 @@ Let's create a web service that will perform simple CRUD(Create, Read, Update, D
 
 1.  EmployeeService.java
 
-   Get the service endpoint interface, corresponds to EmployeeServiceTopDown.java in top-down approach.
+   Get the service endpoint interface, corresponds to *EmployeeServiceTopDown.java* in top-down approach.
 
-   获取服务端点接口，以自顶向下的方式对应 EmployeeServiceTopDown.java。
+   获取服务端点接口，以自顶向下的方式对应 *EmployeeServiceTopDown.java*。
 
    [EmployeeService.java](src/com/baeldung/jaxws/server/bottomup/EmployeeService.java)
 
 2.  EmployeeServiceImpl.java
 
-   In step 1, we have created the structure ofthe web service. we have to create the implementation ofthe web service. The following is web service implementation it, corresponds to the 3rd step in top-down approach.
+   In step 1, we have created the structure of the web service. we have to create the implementation of the web service. The following is web service implementation it, corresponds to the 3rd step in top-down approach.
 
    在步骤 1 中，我们已经创建了 web 服务的结构。我们必须创建 web 服务的实现。下面是 web 服务实现它，对应于自顶向下方法的第三步。
 
@@ -221,7 +223,7 @@ wsimport -keep -s src\ -p com.baeldung.jaxws.client
 http://localhost:8080/employeeservice?wsdl
 ```
 
-We use the wsdl file from the web service to generate our client code. **-keep** means to keep the source code. Other parameters were explained in the top-down approach section. We should add a client to try connect the web service.
+We use the wsdl file from the web service to generate our client code. **-keep** means to keep the source code. Other parameters were explained in the top-down approach section. We should add a client to try to connect the web service.
 
 我们使用来自 web 服务的 wsdl 文件来生成我们的客户机代码。-keep 表示保留源代码。其他参数在 top-down 方法一节解释。我们应该添加一个客户端来尝试连接 web 服务。
 
@@ -229,7 +231,7 @@ We use the wsdl file from the web service to generate our client code. **-keep**
 
 The program should output "yourname" in the console.
 
-程序应该在控制台中输出“yourname”。
+程序应该在控制台中输出 “yourname”。
 
 ## Tutorial Assessment
 
@@ -237,11 +239,11 @@ The program should output "yourname" in the console.
 
 1. In the top-down service, can the client use **getEmployee**, **updateEmployee** methods? Please explain.
 
-   在 top-down 服务中，客户端可以使用 getEmployee, updateEmployee 方法吗？请解释 一下。
+   在 top-down 服务中，客户端可以使用 **getEmployee**, **updateEmployee** 方法吗？请解释 一下。
 
 2. If we want the client connected to the bottom-up web service to use **countEmployees** method, what modification should we do in the **EmployeeService.java** and **EmployeeServiceImpl.java**?
 
-   如果我们希望连接到自底向上的 web 服务的客户端使用 countEmployees 方法， 我们应该在 EmployeeService.java 和 EmployeeServiceImpl.java 中做什么修改？
+   如果我们希望连接到自底向上的 web 服务的客户端使用 **countEmployees** 方法， 我们应该在 **EmployeeService.java** 和 **EmployeeServiceImpl.java** 中做什么修改？
 
 3. What is GlassFish?
 
@@ -251,7 +253,7 @@ The program should output "yourname" in the console.
 
 >常见问题解答
 
-1. The complier shows that the **Inject** class not found.
+1. The compiler shows that the **Inject** class not found.
 
    编译器显示没有找到注入类。
 
@@ -259,7 +261,7 @@ The program should output "yourname" in the console.
 
    你应该添加一个额外的包到你的项目中。该软件包可以在 https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar 下载。
 
-2. If you have problems in this tutorial, please feel free to contact me in our wechat group.
+2. If you have problems in this tutorial, please feel free to contact me in our WeChat group.
 
    如果你在本教程中有问题，请随时在我们微信群中联系我。
 
