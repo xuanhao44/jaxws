@@ -276,7 +276,7 @@ The program should output "yourname" in the console.
 
 2. If we want the client connected to the bottom-up web service to use **countEmployees** method, what modification should we do in the **EmployeeService.java** and **EmployeeServiceImpl.java**?
 
-   如果我们希望连接到自底向上的 web 服务的客户端使用 **countEmployees** 方法， 我们应该在 **EmployeeService.java** 和 **EmployeeServiceImpl.java** 中做什么修改？
+   如果我们希望连接到自底向上的 web 服务的客户端使用 **countEmployees** 方法，我们应该在 **EmployeeService.java** 和 **EmployeeServiceImpl.java** 中做什么修改？
 
 3. What is GlassFish?
 
