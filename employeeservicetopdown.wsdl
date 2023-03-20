@@ -7,8 +7,7 @@
         targetNamespace="http://topdown.server.jaxws.baeldung.com/"
         qname="EmployeeServiceTopDown">
     <types>
-        <xsd:schema
-                targetNamespace="http://topdown.server.jaxws.baeldung.com/">
+        <xsd:schema targetNamespace="http://topdown.server.jaxws.baeldung.com/">
             <xsd:element name="countEmployeesResponse" type="xsd:int"/>
         </xsd:schema>
     </types>
@@ -28,9 +27,7 @@
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"
                       style="document"/>
         <operation name="countEmployees">
-            <soap:operation
-                    soapAction="http://topdown.server.jaxws.baeldung.com/
-                            EmployeeServiceTopDown/countEmployees"/>
+            <soap:operation soapAction="http://topdown.server.jaxws.baeldung.com/EmployeeServiceTopDown/countEmployees"/>
             <input>
                 <soap:body use="literal"/>
             </input>
@@ -42,8 +39,7 @@
     <service name="EmployeeServiceTopDown">
         <port name="EmployeeServiceTopDownSOAP"
               binding="tns:EmployeeServiceTopDownSOAP">
-            <soap:address
-                    location="http://localhost:8080/employeeservicetopdown"/>
+            <soap:address location="http://localhost:8080/employeeservicetopdown"/>
         </port>
     </service>
 </definitions>
