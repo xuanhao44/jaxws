@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/AddEmployee.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/AddEmployeeResponse.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/DeleteEmployee.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/DeleteEmployeeResponse.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/Employee.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/Exception.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/GetEmployee.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/GetEmployeeResponse.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/UpdateEmployee.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/baeldung/jaxws/client/UpdateEmployeeResponse.java" charset="GBK" />
+  </component>
+</project>

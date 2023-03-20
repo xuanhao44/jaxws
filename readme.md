@@ -112,12 +112,13 @@ The service discussed in this tutorial provides employee information. We would l
 
    The wsimport tool has generated the web service endpoint interface *EmployeeServiceTopDown*. It declares the web service methods.
    
+
 wsimport 工具已经生成了 web 服务端点接口 *EmployeeServiceTopDown*。它声明了 web 服务方法。
-   
+
 The generated files:
-   
+
 > 生成的文件：
-   
+
    - *EmployeeServiceTopDown.java* - is the service endpoint interface (SEI) that contains method definitions
    
      > 包含方法定义的服务端点接口(SEI)
@@ -129,9 +130,9 @@ The generated files:
    - *EmployeeServiceTopDown_Service.java* - is the service provider class that can be used by a JAX-WS client
    
         > 可以被 JAX-WS 客户机使用的服务提供程序类
-   
+
 If you get all the files above, then congratulations, let's go to next step. If you have problem at this stage, this link might help. https://www.baeldung.com/jax-ws. You can also ask questions in our WeChat group.
-   
+
    如果你得到了上面所有的文件，那么恭喜你，让我们进入下一步。如果你在这个阶段有问题，这个链接可能会有帮助。https://www.baeldung.com/jax-ws。你也可以在我们的微信群里提问。
 
 3. Implement our service
@@ -156,6 +157,7 @@ If you get all the files above, then congratulations, let's go to next step. If 
 
    We can now run *EmployeeServicePublisher* to start the web service. To make use of CDI features, the web services can be deployed as WAR file to application servers like WildFly or GlassFish.
    
+
 现在我们可以运行 *EmployeeServicePublisher* 来启动 web 服务。为了利用 CDI 特性，web 服务可以作为 WAR 文件部署到应用服务器上，如 WildFly 或 GlassFish。
 
 **Tips：**
@@ -231,9 +233,11 @@ To check if the web service has been published successfully, you can open your b
 http://localhost:8080/employeeservice?wsdl
 ```
 
-You can get a result from the request like this: (none pic)
+You can get a result from the request like this:
 
-你可以从请求中得到这样的结果:
+你可以从请求中得到这样的结果：
+
+![wsdl_example](pic/wsdl_example.png)
 
 If you got the result, congratulations. We can now focus on the client part of web service.
 

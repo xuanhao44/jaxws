@@ -1,8 +1,5 @@
 package com.baeldung.jaxws.client;
 
-import com.baeldung.jaxws.server.Employee;
-import com.baeldung.jaxws.server.bottomup.EmployeeService;
-
 import java.net.URL;
 import java.lang.Exception;
 import java.util.List;
