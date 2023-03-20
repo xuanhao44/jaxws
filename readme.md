@@ -258,8 +258,7 @@ http://localhost:8080/employeeservice?wsdl
 
 We use the wsdl file from the web service to generate our client code. **-keep** means to keep the source code. Other parameters were explained in the top-down approach section. We should add a client to try to connect the web service.
 
-我们使用来自 web 服务的 wsdl 文件来生成我们的客户机代码。**-keep** 表示保留源代码。其他参数在自顶向下方法一节解释。我们应该添加一个客户端来尝试连接
-web 服务。
+我们使用来自 web 服务的 wsdl 文件来生成我们的客户机代码。**-keep** 表示保留源代码。其他参数在自顶向下方法一节解释。我们应该添加一个客户端来尝试连接 web 服务。
 
 [EmployeeServiceClient.java](src/com/baeldung/jaxws/client/EmployeeServiceClient.java)
 
