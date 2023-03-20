@@ -10,7 +10,7 @@ import com.baeldung.jaxws.server.repository.EmployeeRepositoryImpl;
 
 @WebService(
 		name = "EmployeeServiceTopDown",
-		endpointInterface = "com.baeldung.jaxws.com.baeldung.jaxws.server.topdown.EmployeeServiceTopDown",
+		endpointInterface = "com.baeldung.jaxws.server.topdown.EmployeeServiceTopDown",
 		targetNamespace = "http://topdown.server.jaxws.baeldung.com/"
 )
 

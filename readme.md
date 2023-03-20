@@ -145,6 +145,8 @@ The service discussed in this tutorial provides employee information. We would l
          C:\Users\Shiro\.jdks\corretto-1.8.0_362\bin\wsimport.exe -s src\ employeeservicetopdown.wsdl
         ```
 
+        （发现该命令还是会生成单独的 class 编译文件，不在 out 中，可以手动删除）
+
       - 为了将生成的 java 文件放到 **out 文件夹**中，使用命令：（感觉没有必要，也许之后可以一起生成）
 
         ```shell
