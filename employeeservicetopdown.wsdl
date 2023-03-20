@@ -29,7 +29,8 @@
                       style="document"/>
         <operation name="countEmployees">
             <soap:operation
-                    soapAction="http://topdown.server.jaxws.baeldung.com/EmployeeServiceTopDown/countEmployees"/>
+                    soapAction="http://topdown.server.jaxws.baeldung.com/
+                            EmployeeServiceTopDown/countEmployees"/>
             <input>
                 <soap:body use="literal"/>
             </input>
@@ -41,7 +42,8 @@
     <service name="EmployeeServiceTopDown">
         <port name="EmployeeServiceTopDownSOAP"
               binding="tns:EmployeeServiceTopDownSOAP">
-            <soap:address location="http://localhost:8080/employeeservicetopdown"/>
+            <soap:address
+                    location="http://localhost:8080/employeeservicetopdown"/>
         </port>
     </service>
 </definitions>

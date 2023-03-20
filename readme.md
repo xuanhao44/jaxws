@@ -80,7 +80,7 @@ The service discussed in this tutorial provides employee information. We would l
 
    在自顶向下的方法中，我们用 WSDL(Web 服务定义语言)文件定义我们的服务。下面显示了名为 *employeeservicetopdown.wsdl* 的 WSDL 文件中的代码。如果您想了解更多 WSDL 的信息，请回忆一下您在模块 3 中学到的信息；也可以查看这篇[博客](https://www.baeldung.com/jax-ws)。在 java 项目下创建下面的 WSDL 文件。
 
-   [employeeservicetopdown.wsdl](src/com/baeldung/jaxws/server/topdown/employeeservicetopdown.wsdl)
+   [employeeservicetopdown.wsdl](employeeservicetopdown.wsdl)
 
 2.  Generate server code using wsimport command
 
@@ -101,7 +101,7 @@ The service discussed in this tutorial provides employee information. We would l
 
    The parameter -s src\ means we store generated source codes in topdown directory.
 
-   参数-s src\ 表示我们将生成的源代码存储在 topdown 目录中。
+   参数 -s src\ 表示我们将生成的源代码存储在 topdown 目录中。
 
    The parameter **-p com.baeldung.jaxws.server.topdown** means the generated code are in the package topdown.
 
@@ -130,6 +130,26 @@ The service discussed in this tutorial provides employee information. We would l
    If you get all the files above, then congratulations, let's go to next step. If you have problem at this stage, this link might help. https://www.baeldung.com/jax-ws. You can also ask questions in our WeChat group.
 
    如果你得到了上面所有的文件，那么恭喜你，让我们进入下一步。如果你在这个阶段有问题，这个链接可能会有帮助。https://www.baeldung.com/jax-ws。你也可以在我们微信群里提问。
+
+   **Tips：**
+
+   1. 在项目文件目录下，调用 wsimport，不会设置 javahome 的话可以直接调用 wsimport.exe，比如我就是直接用 `C:\Users\Shiro\.jdks\corretto-1.8.0_362\bin\wsimport.exe`。
+
+   2. wsdl 文件就放在项目文件目录一级就好：[employeeservicetopdown.wsdl](employeeservicetopdown.wsdl)。
+
+   3. -s -p 参数理解了再调用，不要直接抄 shell 脚本。
+
+      - 为了将生成的 java 文件放到 topdown 文件夹中，使用命令：
+
+        ```shell
+         C:\Users\Shiro\.jdks\corretto-1.8.0_362\bin\wsimport.exe -s src\ employeeservicetopdown.wsdl
+        ```
+
+      - 为了将生成的 java 文件放到 **out 文件夹**中，使用命令：（感觉没有必要，也许之后可以一起生成）
+
+        ```shell
+        C:\Users\Shiro\.jdks\corretto-1.8.0_362\bin\wsimport.exe -p out.com.baeldung.jaxws.server.topdown employeeservicetopdown.wsdl
+        ```
 
 3.  Implement our service
 
