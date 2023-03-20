@@ -5,7 +5,7 @@ import com.baeldung.jaxws.server.Employee;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepositoryImpl {
+public class EmployeeRepositoryImpl implements EmployeeRepository {
 	// the implementation of functions we want to provide for client
 	private List<Employee> employeeList;
 	public EmployeeRepositoryImpl() {
