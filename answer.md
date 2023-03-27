@@ -12,3 +12,4 @@ Add a new method named `countEmployees` to the EmployeeService.java. Then publis
 
 GlassFish is an open-source application server for the Java EE platform. It is sponsored by the Eclipse Foundation and provides a Jakarta EE compatible implementation. Oracle GlassFish Server is based on GlassFish Server Open Source Edition.
 
+（using New bing）
