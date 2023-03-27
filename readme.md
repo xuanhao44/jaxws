@@ -1,5 +1,9 @@
 # Web Service Tutorial
 
+> 把 PDF 文档的内容整理了一遍，修订了错误，加入了自己的一些 tips。
+> 另外问题的答案在: [answer.md](answer.md) 中。问题意外的简单，其实可使用 GPT 很快的得到答案。
+> 该项目代码实际是来源于 [https://github.com/eugenp/tutorials/tree/master/web-modules/jee-7/src/main/java/com/baeldung/jaxws](https://github.com/eugenp/tutorials/tree/master/web-modules/jee-7/src/main/java/com/baeldung/jaxws)。里面的代码很完整。
+
 ## Creating and Connecting to SOAP Web Service using JAX-WS
 
 > 使用 JAX-WS 创建并连接到 SOAP Web 服务
