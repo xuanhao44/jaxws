@@ -32,7 +32,7 @@ To follow this tutorial, you need to prepare the following tools:
 
    Inject java 包。该包可以从 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 下载。
 
-此 API 似乎在高版本的 JDK 中被移除了，所以使用如 JDK 17/18/19 的版本无法成功导入所要使用的包。
+此 API 似乎在高版本的 JDK 中被移除了，所以使用如 JDK 17/18/19 的版本无法成功导入所要使用的包。老老实实使用 JDK 8 SE 吧。
 
 ## Introduction
 
@@ -56,11 +56,11 @@ In a top-down (contract-first) approach, a WSDL document is created, and the nec
 
 Writing a WSDL file can be quite difficult depending on how complex your web service is. This makes the bottom-up approach an easier option. On the other hand, since your WSDL is generated from the Java classes, any change in code might cause a change in the WSDL. This is not the case for the top-down approach.
 
-编写 WSDL 文件可能相当困难，这取决于您的 web 服务有多复杂。这使得自底向上方法成为一种更容易的选择。另一方面，由于您的 WSDL 是从 Java 类生成的，因此代码中的任何更改都可能导致 WSDL 的更改。这不是自顶向下方法的情况。 
+编写 WSDL 文件可能相当困难，这取决于您的 web 服务有多复杂。这使得自底向上方法成为一种更容易的选择。另一方面，由于您的 WSDL 是从 Java 类生成的，因此代码中的任何更改都可能导致 WSDL 的更改。这不是自顶向下方法的情况。
 
 In this tutorial, we'll take a look at both approaches.
 
-在本教程中，我们将看看这两种方法。
+在本教程中我们将看看这两种方法。
 
 ## Prerequisite
 
@@ -78,19 +78,19 @@ The service discussed in this tutorial provides employee information. We would l
 
 > 自顶向下方法
 
-1.  In the top-down approach, we define our service in WSDL (Web Service Definition Language) file. The following shows the code in our WSDL file named *employeeservicetopdown.wsdl*. If You want to know more about the WSDL, please recall information you have learned in Module 3; You can also check this [blog](https://www.baeldung.com/jax-ws). Create the below WSDL file under your java project.
+1. In the top-down approach, we define our service in WSDL (Web Service Definition Language) file. The following shows the code in our WSDL file named *employeeservicetopdown.wsdl*. If You want to know more about the WSDL, please recall information you have learned in Module 3; You can also check this [blog](https://www.baeldung.com/jax-ws). Create the below WSDL file under your java project.
 
-    在自顶向下的方法中，我们用 WSDL(Web 服务定义语言)文件定义我们的服务。下面显示了名为 *employeeservicetopdown.wsdl* 的 WSDL 文件中的代码。如果您想了解更多 WSDL 的信息，请回忆一下您在模块 3 中学到的信息；也可以查看这篇 [博客](https://www.baeldung.com/jax-ws)。在 java 项目下创建下面的 WSDL 文件。
+   在自顶向下的方法中，我们用 WSDL(Web 服务定义语言)文件定义我们的服务。下面显示了名为 *employeeservicetopdown.wsdl* 的 WSDL 文件中的代码。如果您想了解更多 WSDL 的信息，请回忆一下您在模块 3 中学到的信息；也可以查看这篇 [博客](https://www.baeldung.com/jax-ws)。在 java 项目下创建下面的 WSDL 文件。
 
-[employeeservicetopdown.wsdl](employeeservicetopdown.wsdl)
+   [employeeservicetopdown.wsdl](employeeservicetopdown.wsdl)
 
-2.  Generate server code using wsimport command
+2. Generate server code using wsimport command
 
    > 使用 wsimport 命令生成服务器代码
 
    To generate web service source files from a WSDL document, we can use the *wsimport* tool which is part of JDK (at [$JAVA HOME](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux)/bin). Open windows cmd and execute:
 
-   要从 WSDL 文档生成 web 服务源文件，我们可以使用 wsimport 工具，它是 JDK 的一部分(位于[$JAVA_HOME](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux)/bin)。打开 windows cmd 并执行：
+   要从 WSDL 文档生成 web 服务源文件，我们可以使用 wsimport 工具，它是 JDK 的一部分(位于 [$JAVA_HOME](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux)/bin)。打开 windows cmd 并执行：
 
    ```shell
    cd \path\to\javaproject
@@ -111,29 +111,28 @@ The service discussed in this tutorial provides employee information. We would l
    参数 **-p com.baeldung.jaxws.server.topdown** 表示生成的代码在 topdown 包中。
 
    The wsimport tool has generated the web service endpoint interface *EmployeeServiceTopDown*. It declares the web service methods.
-   
 
-wsimport 工具已经生成了 web 服务端点接口 *EmployeeServiceTopDown*。它声明了 web 服务方法。
+   wsimport 工具已经生成了 web 服务端点接口 *EmployeeServiceTopDown*。它声明了 web 服务方法。
 
-The generated files:
+   The generated files:
 
-> 生成的文件：
+   > 生成的文件：
 
    - *EmployeeServiceTopDown.java* - is the service endpoint interface (SEI) that contains method definitions
-   
-     > 包含方法定义的服务端点接口(SEI)
-   
+
+      > 包含方法定义的服务端点接口(SEI)
+
    - *ObjectFactory.java* - contains factory methods to create instances of schema derived classes programmatically
-   
-        > 包含工厂方法，以编程方式创建模式派生类的实例
-   
+
+      > 包含工厂方法，以编程方式创建模式派生类的实例
+
    - *EmployeeServiceTopDown_Service.java* - is the service provider class that can be used by a JAX-WS client
-   
-        > 可以被 JAX-WS 客户机使用的服务提供程序类
 
-If you get all the files above, then congratulations, let's go to next step. If you have problem at this stage, this link might help. https://www.baeldung.com/jax-ws. You can also ask questions in our WeChat group.
+      > 可以被 JAX-WS 客户机使用的服务提供程序类
 
-   如果你得到了上面所有的文件，那么恭喜你，让我们进入下一步。如果你在这个阶段有问题，这个链接可能会有帮助。https://www.baeldung.com/jax-ws。你也可以在我们的微信群里提问。
+   If you get all the files above, then congratulations, let's go to next step. If you have problem at this stage, this link might help: [https://www.baeldung.com/jax-ws](https://www.baeldung.com/jax-ws). You can also ask questions in our WeChat group.
+
+   如果你得到了上面所有的文件，那么恭喜你，让我们进入下一步。如果你在这个阶段有问题，这个链接可能会有帮助：[https://www.baeldung.com/jax-ws](https://www.baeldung.com/jax-ws)。你也可以在我们的微信群里提问。
 
 3. Implement our service
 
@@ -156,9 +155,8 @@ If you get all the files above, then congratulations, let's go to next step. If 
    [EmployeeServicePublisher.java](src/com/baeldung/jaxws/server/EmployeeServicePublisher.java)
 
    We can now run *EmployeeServicePublisher* to start the web service. To make use of CDI features, the web services can be deployed as WAR file to application servers like WildFly or GlassFish.
-   
 
-现在我们可以运行 *EmployeeServicePublisher* 来启动 web 服务。为了利用 CDI 特性，web 服务可以作为 WAR 文件部署到应用服务器上，如 WildFly 或 GlassFish。
+   现在我们可以运行 *EmployeeServicePublisher* 来启动 web 服务。为了利用 CDI 特性，web 服务可以作为 WAR 文件部署到应用服务器上，如 WildFly 或 GlassFish。
 
 **Tips：**
 
@@ -176,7 +174,7 @@ If you get all the files above, then congratulations, let's go to next step. If 
 
      （发现该命令还是会生成单独的 class 编译文件，不在 out 中，可以手动删除）
 
-   - 为了将生成的 java 文件放到 **out 文件夹**中，使用命令：（感觉没有必要，也许之后可以一起生成）
+   - 为了将生成的 java 文件放到 **out 文件夹** 中，使用命令：（感觉没有必要，也许之后可以一起生成）
 
      ```shell
      C:\Users\Shiro\.jdks\corretto-1.8.0_362\bin\wsimport.exe -p out.com.baeldung.jaxws.server.topdown employeeservicetopdown.wsdl
@@ -195,7 +193,7 @@ Let's create a web service that will perform simple CRUD(Create, Read, Update, D
 
 让我们创建一个 web 服务，它将对员工数据执行简单的 CRUD(创建、读取、更新、删除)操作。
 
-1.  EmployeeService.java
+1. EmployeeService.java
 
    Get the service endpoint interface, corresponds to *EmployeeServiceTopDown.java* in top-down approach.
 
@@ -203,15 +201,15 @@ Let's create a web service that will perform simple CRUD(Create, Read, Update, D
 
    [EmployeeService.java](src/com/baeldung/jaxws/server/bottomup/EmployeeService.java)
 
-2.  EmployeeServiceImpl.java
+2. EmployeeServiceImpl.java
 
-    In step 1, we have created the structure of the web service. we have to create the implementation of the web service. The following is web service implementation it, corresponds to the 3rd step in top-down approach.
-    
-    在步骤 1 中，我们已经创建了 web 服务的结构。我们需要实现 web 服务。下面是 web 服务实现，对应于自顶向下方法的第三步。
-    
-    [EmployeeServiceImpl.java](src/com/baeldung/jaxws/server/bottomup/EmployeeServiceImpl.java)
-    
-3.  Publish the service
+   In step 1, we have created the structure of the web service. we have to create the implementation of the web service. The following is web service implementation it, corresponds to the 3rd step in top-down approach.
+
+   在步骤 1 中，我们已经创建了 web 服务的结构。我们需要实现 web 服务。下面是 web 服务实现，对应于自顶向下方法的第三步。
+
+   [EmployeeServiceImpl.java](src/com/baeldung/jaxws/server/bottomup/EmployeeServiceImpl.java)
+
+3. Publish the service
 
    > 发布服务
 
@@ -296,7 +294,7 @@ The program should output "yourname" in the console.
 
 2. If you have problems in this tutorial, please feel free to contact me in our WeChat group.
 
-   如果你在本教程中有问题，请随时在我们微信群中联系我。
+   如果你在本教程中有问题，请随时在我们的微信群中联系我。
 
 ## References
 
@@ -306,4 +304,4 @@ The program should output "yourname" in the console.
 
 The tutorial is based on the above project.
 
-本教程基于上述项目。
+本教程基于上述项目（其实就是完整照抄该项目）。
