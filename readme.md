@@ -1,14 +1,18 @@
 # Web Service Tutorial
 
-> 把 PDF 文档的内容整理了一遍，修订了错误，加入了自己的一些 tips。
-> 另外问题的答案在: [answer.md](answer.md) 中。问题意外的简单，其实可使用 GPT 很快的得到答案。
-> 该项目代码实际是来源于 [https://github.com/eugenp/tutorials/tree/master/web-modules/jee-7/src/main/java/com/baeldung/jaxws](https://github.com/eugenp/tutorials/tree/master/web-modules/jee-7/src/main/java/com/baeldung/jaxws)。里面的代码很完整。
+把 PDF 文档的内容整理了一遍，修订了错误，加入了自己的一些 tips。
+
+另外问题的答案在: [answer.md](answer.md) 中。问题意外的简单，其实可使用 GPT 很快的得到答案。
+
+该项目代码实际是来源于：[https://github.com/eugenp/tutorials/tree/master/web-modules/jee-7/src/main/java/com/baeldung/jaxws](https://github.com/eugenp/tutorials/tree/master/web-modules/jee-7/src/main/java/com/baeldung/jaxws)
 
 ## Creating and Connecting to SOAP Web Service using JAX-WS
 
 > 使用 JAX-WS 创建并连接到 SOAP Web 服务
 
 [Java API for XML Web Services (JAX-WS)](http://jax-ws.java.net/) is a standardized API for creating and consuming SOAP (Simple Object Access Protocol) web services.
+
+[用于 XML Web 服务的 Java API (JAX-WS)](http://jax-ws.java.net/) 是用于创建和使用 SOAP (简单对象访问协议) Web 服务的标准化 API。
 
 In this Tutorial, we'll create a SOAP web service and connect to it using JAX-WS.
 
@@ -27,16 +31,20 @@ To follow this tutorial, you need to prepare the following tools:
 要学习本教程，你需要准备以下工具:
 
 1. A Java Development kit(JDK). Please download JDK (jdk 8 Standard Edition)
-   from https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html.
+   from https://www.oracle.com/java/technologies/downloads/#java8.
 
-   Java 开发工具包(JDK)。JDK(JDK 8 SE)请从 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 下载。
+   Java 开发工具包(JDK)。JDK(JDK 8 SE)请从 https://www.oracle.com/java/technologies/downloads/#java8 下载。
 
 2. The **Inject** java package. The Package can be downloaded
-   from https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html.
+   from https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar.
 
-   Inject java 包。该包可以从 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 下载。
+   Inject java 包。该包可以从 https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar 下载。
+
+Tips：
 
 此 API 似乎在高版本的 JDK 中被移除了，所以使用如 JDK 17/18/19 的版本无法成功导入所要使用的包。老老实实使用 JDK 8 SE 吧。
+
+Inject 包我放在项目中了：[lib/javax.inject-1.jar](lib/javax.inject-1.jar)
 
 ## Introduction
 
@@ -74,9 +82,9 @@ The service discussed in this tutorial provides employee information. We would l
 
 本教程中讨论的服务提供员工信息。我们希望让我们的客户查看我们公司的员工信息。因此，我们首先要准备一些关于我们员工的类。请复制以下代码并分别构建包页面。
 
-1.	[Employee.java](src/com/baeldung/jaxws/server/Employee.java)
-2.	[EmployeeRepository.java](src/com/baeldung/jaxws/server/repository/EmployeeRepository.java)
-3.	[EmployeeRepositoryImpl.java](src/com/baeldung/jaxws/server/repository/EmployeeRepositoryImpl.java)
+1.	[src/com/baeldung/jaxws/server/Employee.java](src/com/baeldung/jaxws/server/Employee.java)
+2.	[src/com/baeldung/jaxws/server/repository/EmployeeRepository.java](src/com/baeldung/jaxws/server/repository/EmployeeRepository.java)
+3.	[src/com/baeldung/jaxws/server/repository/EmployeeRepositoryImpl.java](src/com/baeldung/jaxws/server/repository/EmployeeRepositoryImpl.java)
 
 ## Top-down Approach
 
@@ -146,7 +154,7 @@ The service discussed in this tutorial provides employee information. We would l
 
    在步骤 2 中，我们已经获得了包含方法定义的服务端点接口。接下来，我们必须实现接口中的方法。在 topdown 包中创建 EmployeeServiceTopDownImpl.java。
 
-   [EmployeeServiceTopDownImpl.java](src/com/baeldung/jaxws/server/topdown/EmployeeServiceTopDownImpl.java)
+   [src/com/baeldung/jaxws/server/topdown/EmployeeServiceTopDownImpl.java](src/com/baeldung/jaxws/server/topdown/EmployeeServiceTopDownImpl.java)
 
 4. Publish our service
 
@@ -156,7 +164,7 @@ The service discussed in this tutorial provides employee information. We would l
 
    一旦我们实现了服务端点接口，服务器就成功完成了。要发布 web 服务(自上而下和自下而上)，我们需要将 web 服务实现的地址和实例传递给 *javax.xml.ws.Endpoint* 类的 *publish()* 方法。
 
-   [EmployeeServicePublisher.java](src/com/baeldung/jaxws/server/EmployeeServicePublisher.java)
+   [src/com/baeldung/jaxws/server/EmployeeServicePublisher.java](src/com/baeldung/jaxws/server/EmployeeServicePublisher.java)
 
    We can now run *EmployeeServicePublisher* to start the web service. To make use of CDI features, the web services can be deployed as WAR file to application servers like WildFly or GlassFish.
 
@@ -166,7 +174,7 @@ The service discussed in this tutorial provides employee information. We would l
 
 1. 在项目文件目录下，调用 wsimport，不会设置 JAVA_HOME 的话可以直接调用 wsimport.exe，比如我就是直接用 `C:\Users\Shiro\.jdks\corretto-1.8.0_362\bin\wsimport.exe` 代替 wsimport。
 
-2. wsdl 文件就放在项目文件目录一级就好：[employeeservicetopdown.wsdl](employeeservicetopdown.wsdl)。
+2. wsdl 文件就放在项目文件目录一级就好。
 
 3. -s、-p 参数理解后再调用。
 
@@ -203,7 +211,7 @@ Let's create a web service that will perform simple CRUD(Create, Read, Update, D
 
    获取服务端点接口，以自顶向下的方式对应 *EmployeeServiceTopDown.java*。
 
-   [EmployeeService.java](src/com/baeldung/jaxws/server/bottomup/EmployeeService.java)
+   [src/com/baeldung/jaxws/server/bottomup/EmployeeService.java](src/com/baeldung/jaxws/server/bottomup/EmployeeService.java)
 
 2. EmployeeServiceImpl.java
 
@@ -211,7 +219,7 @@ Let's create a web service that will perform simple CRUD(Create, Read, Update, D
 
    在步骤 1 中，我们已经创建了 web 服务的结构。我们需要实现 web 服务。下面是 web 服务实现，对应于自顶向下方法的第三步。
 
-   [EmployeeServiceImpl.java](src/com/baeldung/jaxws/server/bottomup/EmployeeServiceImpl.java)
+   [src/com/baeldung/jaxws/server/bottomup/EmployeeServiceImpl.java](src/com/baeldung/jaxws/server/bottomup/EmployeeServiceImpl.java)
 
 3. Publish the service
 
@@ -221,9 +229,9 @@ Let's create a web service that will perform simple CRUD(Create, Read, Update, D
 
    发布自底向上方法服务，就像自上而下方法的第 4 步一样。
 
-   [EmployeeServicePublisher.java](src/com/baeldung/jaxws/server/EmployeeServicePublisher.java)
+   [src/com/baeldung/jaxws/server/EmployeeServicePublisher.java](src/com/baeldung/jaxws/server/EmployeeServicePublisher.java)
 
-## check the Published Web Service
+## Check the Published Web Service
 
 > 检查已发布的 Web 服务
 
@@ -262,7 +270,7 @@ We use the wsdl file from the web service to generate our client code. **-keep**
 
 我们使用来自 web 服务的 wsdl 文件来生成我们的客户机代码。**-keep** 表示保留源代码。其他参数在自顶向下方法一节解释。我们应该添加一个客户端来尝试连接 web 服务。
 
-[EmployeeServiceClient.java](src/com/baeldung/jaxws/client/EmployeeServiceClient.java)
+[src/com/baeldung/jaxws/client/EmployeeServiceClient.java](src/com/baeldung/jaxws/client/EmployeeServiceClient.java)
 
 The program should output "yourname" in the console.
 
@@ -286,7 +294,7 @@ The program should output "yourname" in the console.
 
 ## FAQ
 
->常见问题解答
+> 常见问题解答
 
 1. The compiler shows that the **Inject** class not found.
 
